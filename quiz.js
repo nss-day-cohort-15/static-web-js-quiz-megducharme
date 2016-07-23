@@ -1,6 +1,7 @@
 console.log("hi");
 
 
+/*********** EVENT LISTENERS ************/
 
 /* Function checking if fields are populated */
 function checkFields () {
@@ -11,7 +12,6 @@ function checkFields () {
     alert("Both fields must have a value.");
   }
 }
-
 
 /* Checking fields when button is clicked */
 document.getElementById("buttonId").addEventListener ("click", checkFields);
@@ -26,9 +26,19 @@ document.addEventListener("keypress",
 });
 
 
+/********** HEIGHT OF TREE ************/
+var treeHeight = document.getElementById("treeHeight").value;
+treeHeight = parseInt(treeHeight);
+var treeCharacter = document.getElementById("treeCharacter").value;
 
-// /* Looping through fields to check if they are populated */
-// var inputfield = document.querySelectorALL ("inputfield")
-// for (var = 1; i = 2; i++) {
-//   inputfield[i].addEventListener()
-// }
+
+
+for (var i = 0; i === treeHeight; i++) {
+  var line = "      ";
+    for (var j = 0; j === ((treeHeight * 2) - 1); j += 2) {
+    var tree = line += " " + treeCharacter;
+    }
+}
+
+console.log(tree);
+
