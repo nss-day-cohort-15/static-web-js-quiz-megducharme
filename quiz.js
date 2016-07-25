@@ -27,18 +27,38 @@ document.addEventListener("keypress",
 
 
 /********** HEIGHT OF TREE ************/
+
 var treeHeight = document.getElementById("treeHeight").value;
 treeHeight = parseInt(treeHeight);
 var treeCharacter = document.getElementById("treeCharacter").value;
+var tree = "";
 
-
-
-for (var i = 0; i === treeHeight; i++) {
-  var line = "      ";
-    for (var j = 0; j === ((treeHeight * 2) - 1); j += 2) {
-    var tree = line += " " + treeCharacter;
+//outter loop will run the same number of times as the height of the tree (hence creating the height)
+for (var line = treeHeight; line > 0; line--) {
+  var tree = " " + treeCharacter;
+//this loop will add a space with each addtional line
+    for (var spaces = line - 1; spaces > 0 ; spaces--) {
+      var tree = tree += spaces;
+//this loop will then add two characters that the user has input
+    for (var characters = 0; characters === ((treeHeight * 2) - 1); characters++) {
+      var tree = tree += (treeCharacter + treeCharacter);
     }
+  }
 }
 
-console.log(tree);
 
+
+// if 7 is the height, and * is the character then:
+
+// 6 spaces 1 character
+//       *
+// 5 spaces 3 characters (-1 space, +2 characters)
+//      ***
+// 4 spaces 5 characters (-1 space, +2 characters)
+//     *****
+// 3 spaces 7 characters (-1 space, +2 characters) = LOOP
+//    *******
+//
+// start with 1 character = add 2 each time = LOOP 1
+// start with (treeHeight - 1) space, decrement 1 each time = LOOP 2
+//
