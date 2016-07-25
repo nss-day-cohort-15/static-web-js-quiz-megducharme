@@ -5,11 +5,12 @@ console.log("hi");
 
 /* Function checking if fields are populated */
 function checkFields () {
-  var treeHeight = document.getElementById("treeHeight");
-  var treeCharacter = document.getElementById("treeCharacter");
-
+  // var treeHeight = document.getElementById("treeHeight");
+  // var treeCharacter = document.getElementById("treeCharacter");
   if (treeHeight.value === "" || treeCharacter.value === "") {
     alert("Both fields must have a value.");
+  } else{
+    assignValues()
   }
 }
 
@@ -27,25 +28,29 @@ document.addEventListener("keypress",
 
 
 /********** HEIGHT OF TREE ************/
+function assignValues() {
+    var tree = {
+      height: treeHeight.value,
+      character: treeCharacter.value
+    };
+    growTree(tree);
+  }
 
-var treeHeight = document.getElementById("treeHeight").value;
-treeHeight = parseInt(treeHeight);
-var treeCharacter = document.getElementById("treeCharacter").value;
-var tree = "";
-
-//outter loop will run the same number of times as the height of the tree (hence creating the height)
-for (var line = treeHeight; line > 0; line--) {
-  var tree = " " + treeCharacter;
-//this loop will add a space with each addtional line
-    for (var spaces = line - 1; spaces > 0 ; spaces--) {
-      var tree = tree += spaces;
-//this loop will then add two characters that the user has input
-    for (var characters = 0; characters === ((treeHeight * 2) - 1); characters++) {
-      var tree = tree += (treeCharacter + treeCharacter);
+ function growTree(tree) {
+    for (var i = 1; i <= tree.treeHeight; i++) {
+      console.log(" ".repeat(tree.Height - i) + tree.Character.repeat((i * 2) - 1) + " ".repeat(tree.Height - i))
     }
   }
-}
 
+
+// var space = " ";
+// console.log(space + space + space + space + space + space + "*")
+// console.log(space + space + space + space + space + "***")
+// console.log(space + space + space + space + "*****")
+// console.log(space + space + space + "*******")
+// console.log(space + space + "*********")
+// console.log(space + "***********")
+// console.log("*************")
 
 
 // if 7 is the height, and * is the character then:
