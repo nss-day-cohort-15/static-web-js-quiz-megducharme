@@ -2,22 +2,8 @@ console.log("hi");
 
 
 /*********** EVENT LISTENERS ************/
-
-/* Function checking if fields are populated */
-function checkFields () {
-  // var treeHeight = document.getElementById("treeHeight");
-  // var treeCharacter = document.getElementById("treeCharacter");
-  if (treeHeight.value === "" || treeCharacter.value === "") {
-    alert("Both fields must have a value.");
-  } else{
-    assignValues()
-  }
-}
-
 /* Checking fields when button is clicked */
-document.getElementById("buttonId").addEventListener ("click", checkFields);
-
-
+document.getElementById("buttonId").addEventListener("click", checkFields);
 /* Setup for checking when enter key is pressed */
 document.addEventListener("keypress",
   function (e) {
@@ -25,7 +11,17 @@ document.addEventListener("keypress",
       checkFields();
     }
 });
+/* Function checking if fields are populated */
+var treeHeight = document.getElementById("treeHeight");
+var treeCharacter = document.getElementById("treeCharacter");
 
+function checkFields () {
+  if (treeHeight.value === "" || treeCharacter.value === "") {
+    alert("Both fields must have a value.");
+  } else{
+    assignValues()
+  }
+}
 
 /********** HEIGHT OF TREE ************/
 function assignValues() {
@@ -37,8 +33,8 @@ function assignValues() {
   }
 
  function growTree(tree) {
-    for (var i = 1; i <= tree.treeHeight; i++) {
-      console.log(" ".repeat(tree.Height - i) + tree.Character.repeat((i * 2) - 1) + " ".repeat(tree.Height - i))
+    for (var i = 1; i <= tree.height; i++) {
+      console.log(" ".repeat(tree.height - i) + tree.character.repeat((i * 2) - 1) + " ".repeat(tree.height - i))
     }
   }
 
