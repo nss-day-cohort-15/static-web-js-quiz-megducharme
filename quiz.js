@@ -5,7 +5,14 @@ console.log("hi");
 /* Checking fields when button is clicked */
 document.getElementById("buttonId").addEventListener("click", checkFields);
 /* Setup for checking when enter key is pressed */
-document.addEventListener("keypress",
+document.getElementById("treeHeight").addEventListener("keypress",
+  function (e) {
+    if (e.key === "Enter") {
+      checkFields();
+    }
+});
+
+document.getElementById("treeCharacter").addEventListener("keypress",
   function (e) {
     if (e.key === "Enter") {
       checkFields();
